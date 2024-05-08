@@ -1,3 +1,9 @@
+Made using:
+1. Next.JS
+2. TailwindCSS
+3. ShadCN UI
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
