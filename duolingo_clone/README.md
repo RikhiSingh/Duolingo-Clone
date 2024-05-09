@@ -3,6 +3,7 @@ Made using:
 2. TailwindCSS
 3. ShadCN UI
 4. Clerk (Authentication)
+5. Masscots from kenny
 
 
 ***
