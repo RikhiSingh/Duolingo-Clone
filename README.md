@@ -12,7 +12,8 @@ Made using:
 
 
 ***
-inside node modules clerk nextjs dist types index
+inside node_modules>clerk>nextjs>dist>types>index
+
 we need this
 /**
  * These need to be explicitly listed. Do not use an * here.
