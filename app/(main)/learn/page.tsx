@@ -10,6 +10,7 @@ import {
 } from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Unit } from "./unit";
+import { lessons, units as unitsSchema } from "@/db/schema";
 
 const LearnPage = async () => {
 
@@ -60,7 +61,9 @@ const LearnPage = async () => {
                             description={unit.description}
                             title={unit.title}
                             lessons={unit.lessons}
-                            activeLesson={courseProgress.activeLesson}
+                            activeLesson={courseProgress.activeLesson as typeof lessons.$inferSelect & {
+                                unit: typeof unitsSchema.$inferSelect;
+                            } | undefined}
                             activeLessonPercentage={lessonPercentage}
                         />
                     </div>
