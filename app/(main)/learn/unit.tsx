@@ -27,6 +27,18 @@ export const Unit = ({
     return(
         <>
             <UnitBanner title={title} description={description}/>
+            <div className="flex items-center flex-col relative">
+                {lessons.map((lesson,index)=>{
+                    const isCurrent = lesson.id === activeLesson?.id;
+                    const isLocked = !lesson.completed && !isCurrent;
+
+                    return (
+                        <LessonButton
+                            
+                        />
+                    )
+                })}
+            </div>
         </>
     );
 };
