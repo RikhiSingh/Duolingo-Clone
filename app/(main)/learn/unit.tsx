@@ -1,5 +1,6 @@
 import { lessons, units } from "@/db/schema";
 import { UnitBanner } from "./unit-banner";
+import { LessonButton } from "./lesson-button";
 
 type Props = {
     id: number;
@@ -34,7 +35,7 @@ export const Unit = ({
 
                     return (
                         <LessonButton
-                            
+
                         />
                     )
                 })}
