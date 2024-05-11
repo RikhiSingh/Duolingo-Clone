@@ -35,7 +35,13 @@ export const Unit = ({
 
                     return (
                         <LessonButton
-
+                            key={lesson.id}
+                            id={lesson.id}
+                            index={index}
+                            totalCount={lessons.length -1}
+                            current={isCurrent}
+                            locked={isLocked}
+                            percentage={activeLessonPercentage}
                         />
                     )
                 })}
