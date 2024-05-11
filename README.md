@@ -1,12 +1,14 @@
 Made using:
 1. Next.JS
-2. TailwindCSS
-3. ShadCN UI
-4. Clerk (Authentication)
-5. Masscots from kenny
-6. PostgreSQL
-7. Drizzle
-8. Neon
+2. TypeScript
+3. JavaScript
+4. TailwindCSS
+5. ShadCN UI
+6. Clerk (Authentication)
+7. Masscots from kenny
+8. PostgreSQL
+9. Drizzle
+10. Neon
 
 
 ***
