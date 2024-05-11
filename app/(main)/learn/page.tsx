@@ -17,6 +17,7 @@ const LearnPage = async () => {
 
     // if no check we will need ? for typeof as well as where there is userProgress.active etc.
     if(!userProgress || !userProgress.activeCourse){
+        // acts as return nothing will run after this redirect
         redirect("/courses");
     }
 
