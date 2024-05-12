@@ -9,6 +9,7 @@ Made using:
 8. PostgreSQL
 9. Drizzle
 10. Neon
+11. Zustand
 
 
 ***
