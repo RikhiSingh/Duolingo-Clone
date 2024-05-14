@@ -1,14 +1,16 @@
 "use client";
 
-import { challengeOptions, challenges } from "@/db/schema";
+import { toast } from "sonner";
 import { useState, useTransition } from "react";
+
+import { challengeOptions, challenges } from "@/db/schema";
+import { reduceHearts } from "@/actions/user-progress";
+import { upsertChallengeProgress } from "@/actions/challenge-progress";
+
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
 import { Challenge } from "./challenge";
 import { Footer } from "./footer";
-import { upsertChallengeProgress } from "@/actions/challenge-progress";
-import { toast } from "sonner";
-import { reduceHearts } from "@/actions/user-progress";
 
 type Props = {
     initialPercentage: number;
@@ -91,28 +93,28 @@ export const Quiz = ({
                         setPercentage((prev) => prev + 100 / challenges.length);
 
                         // this is a practice
-                        if(initialPercentage===100){
-                            setHearts((prev)=>Math.min(prev+1,5));
+                        if (initialPercentage === 100) {
+                            setHearts((prev) => Math.min(prev + 1, 5));
                         }
                     })
-                    .catch(()=>toast.error("Something went wrong. Please try again."))
+                    .catch(() => toast.error("Something went wrong. Please try again."))
             })
         } else {
-            startTransition(()=>{
+            startTransition(() => {
                 reduceHearts(challenge.id)
-                    .then((response)=>{
-                        if(response?.error === "hearts"){
+                    .then((response) => {
+                        if (response?.error === "hearts") {
                             console.error("Missing hearts");
                             return;
                         };
 
                         setStatus("wrong");
 
-                        if(!response?.error){
-                            setHearts((prev)=>Math.max(prev-1,0));
+                        if (!response?.error) {
+                            setHearts((prev) => Math.max(prev - 1, 0));
                         }
                     })
-                    .catch(()=>toast.error("Something went wrong. Please try again."))
+                    .catch(() => toast.error("Something went wrong. Please try again."))
             })
         }
     }
