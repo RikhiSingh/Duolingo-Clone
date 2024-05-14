@@ -10,6 +10,7 @@ Made using:
 9. Drizzle
 10. Neon
 11. Zustand
+12. Axios
 
 
 ***
