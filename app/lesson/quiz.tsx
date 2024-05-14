@@ -108,8 +108,11 @@ export const Quiz = ({
 
                         setStatus("wrong");
 
-                        if(!response)
+                        if(!response?.error){
+                            setHearts((prev)=>Math.max(prev-1,0));
+                        }
                     })
+                    .catch(()=>toast.error("Something went wrong. Please try again."))
             })
         }
     }
