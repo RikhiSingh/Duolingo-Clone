@@ -27,23 +27,23 @@ export const Footer = ({
             status === "wrong" && "border-transparent bg-rose-100",
         )}>
             <div className="max-w-[1140px] h-full mx-auto flex items-center justify-center px-6 lg:px-10">
-                {status === "correct" &&(
+                {status === "correct" && (
                     <div className="text-green-500 font-bold text-base lg:text-2xl flex items-center">
-                        <CheckCircle className="h-6 w-6 lg:h-10 lg:w-10 mr-4"/>
+                        <CheckCircle className="h-6 w-6 lg:h-10 lg:w-10 mr-4" />
                         Nicely Done!
                     </div>
                 )}
-                {status === "wrong" &&(
+                {status === "wrong" && (
                     <div className="text-rose-500 font-bold text-base lg:text-2xl flex items-center">
-                        <XCircle className="h-6 w-6 lg:h-10 lg:w-10 mr-4"/>
+                        <XCircle className="h-6 w-6 lg:h-10 lg:w-10 mr-4" />
                         Try Again.
                     </div>
                 )}
-                {status === "completed" &&(
+                {status === "completed" && (
                     <Button
                         variant="default"
-                        size={isMobile ? "sm": "lg"}
-                        onClick={()=>window.location.href = `/lesson/${lessonId}`}
+                        size={isMobile ? "sm" : "lg"}
+                        onClick={() => window.location.href = `/lesson/${lessonId}`}
                     >
                         Practice Again
                     </Button>
