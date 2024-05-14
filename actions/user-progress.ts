@@ -91,5 +91,5 @@ export const reduceHearts = async (challengeId: number) => {
 
     await db.update(userProgress).set({
         hearts: Math.min(currentUserProgress.hearts - 1, 0),
-    });
+    }).where(eq(userProgress.userId, userId));
 };
