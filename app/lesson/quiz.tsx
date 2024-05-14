@@ -163,6 +163,10 @@ export const Quiz = ({
                             variant="points"
                             value={challenges.length * 10}
                         />
+                        <ResultCard 
+                            variant="hearts"
+                            value={hearts}
+                        />
                     </div>
                 </div>
             </>
