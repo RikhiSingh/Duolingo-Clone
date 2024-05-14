@@ -12,6 +12,8 @@ import { QuestionBubble } from "./question-bubble";
 import { Challenge } from "./challenge";
 import { Footer } from "./footer";
 import { useAudio } from "react-use";
+import Image from "next/image";
+import { ResultCard } from "./result-card";
 
 type Props = {
     initialPercentage: number;
@@ -132,7 +134,40 @@ export const Quiz = ({
                     .catch(() => toast.error("Something went wrong. Please try again."))
             })
         }
-    }
+    };
+
+    if(true || !challenge){
+        return(
+            <>
+                <div className="flex flex-col gap-y-4 lg:gap-y-8 max-w-lg mx-auto text-center items-center justify-center h-full">
+                    <Image 
+                        src="finish.svg"
+                        alt="finish"
+                        className="hidden lg:block"
+                        height={100}
+                        width={100}
+                    />
+                    <Image 
+                        src="finish.svg"
+                        alt="finish"
+                        className="block lg:hidden"
+                        height={50}
+                        width={50}
+                    />
+                    <h1 className="text-xl lg:text-3xl font-bold text-neutral-700">
+                        Great Job! <br />
+                        You have completed the lesson.
+                    </h1>
+                    <div className="flex items-center gap-x-4 w-full">
+                        <ResultCard 
+                            variant="points"
+                            value={challenges.length * 10}
+                        />
+                    </div>
+                </div>
+            </>
+        )
+    };
 
     const title = challenge.type === "ASSIST" ? "Select the correct meaning" : challenge.question;
 
