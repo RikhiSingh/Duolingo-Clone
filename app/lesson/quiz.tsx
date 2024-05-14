@@ -145,7 +145,7 @@ export const Quiz = ({
         }
     };
 
-    if (true || !challenge) {
+    if (!challenge) {
         return (
             <>
                 {finishAudio}
