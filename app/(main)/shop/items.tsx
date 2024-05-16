@@ -1,7 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import Image from "next/image";
+import { useTransition } from "react";
+
+import { refillHearts } from "@/actions/user-progress";
+import { Button } from "@/components/ui/button";
 
 const POINTS_TO_REFILL = 10;
 
@@ -15,6 +19,19 @@ export const Items = ({
     hearts,
     points
 }: Props) => {
+    const [pending, startTransition] = useTransition();
+
+    const onRefillHearts = () => {
+        if (pending || hearts === 5 || points < POINTS_TO_REFILL) {
+            return;
+        };
+
+        startTransition(() => {
+            refillHearts()
+                .catch(() => toast.error("Something went wrong"));
+        })
+    }
+
     return (
         <ul className="w-full">
             <div className="flex items-center w-full p-4 gap-x-4 border-t-2">
@@ -30,7 +47,12 @@ export const Items = ({
                     </p>
                 </div>
                 <Button
-                    disabled={hearts === 5 || points < POINTS_TO_REFILL}
+                    onClick={onRefillHearts}
+                    disabled={
+                        pending
+                        || hearts === 5
+                        || points < POINTS_TO_REFILL
+                    }
                 >
                     {hearts === 5
                         ? "full"
