@@ -7,10 +7,11 @@ Made using:
 6. Clerk (Authentication)
 7. Masscots from kenny
 8. PostgreSQL
-9. Drizzle
+9. Drizzle ORM
 10. Neon
 11. Zustand
 12. Axios
+13. Stripe
 
 
 ***
