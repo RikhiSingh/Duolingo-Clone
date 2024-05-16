@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
+const POINTS_TO_REFILL = 10;
+
 type Props = {
     hearts: number;
     points: number;
@@ -28,7 +30,7 @@ export const Items = ({
                     </p>
                 </div>
                 <Button
-                    disabled={hearts === 5}
+                    disabled={hearts === 5 || points < POINTS_TO_REFILL}
                 >
                     {hearts === 5
                         ? "full"
@@ -41,7 +43,7 @@ export const Items = ({
                                     width={20}
                                 />
                                 <p>
-                                    50
+                                    {POINTS_TO_REFILL}
                                 </p>
                             </div>
                         )
