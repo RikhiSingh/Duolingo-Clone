@@ -171,14 +171,14 @@ export const Quiz = ({
                 />
                 <div className="flex flex-col gap-y-4 lg:gap-y-8 max-w-lg mx-auto text-center items-center justify-center h-full">
                     <Image
-                        src="finish.svg"
+                        src="/finish.svg"
                         alt="finish"
                         className="hidden lg:block"
                         height={100}
                         width={100}
                     />
                     <Image
-                        src="finish.svg"
+                        src="/finish.svg"
                         alt="finish"
                         className="block lg:hidden"
                         height={50}
