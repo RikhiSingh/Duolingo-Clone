@@ -29,6 +29,7 @@ export const Items = ({
         startTransition(() => {
             refillHearts()
                 .catch(() => toast.error("Something went wrong"));
+            toast.success("Hearts added successfully");
         })
     }
 
