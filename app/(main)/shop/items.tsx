@@ -6,6 +6,7 @@ import { useTransition } from "react";
 
 import { refillHearts } from "@/actions/user-progress";
 import { Button } from "@/components/ui/button";
+import { createStripeUrl } from "@/actions/user-subscription";
 
 const POINTS_TO_REFILL = 10;
 
@@ -17,7 +18,8 @@ type Props = {
 
 export const Items = ({
     hearts,
-    points
+    points,
+    hasActiveSubscription,
 }: Props) => {
     const [pending, startTransition] = useTransition();
 
@@ -31,7 +33,21 @@ export const Items = ({
                 .catch(() => toast.error("Something went wrong"));
             toast.success("Hearts added successfully");
         })
-    }
+    };
+
+    const onUpgrade = () => {
+        startTransition(() => {
+            createStripeUrl()
+                .then((response) => {
+                    if (response.data) {
+                        // response.data is gonna be a url string
+                        window.location.href = response.data;
+                    }
+                })
+                .catch(() => toast.error("Something went wrong"));
+            ;
+        });
+    };
 
     return (
         <ul className="w-full">
@@ -71,6 +87,25 @@ export const Items = ({
                             </div>
                         )
                     }
+                </Button>
+            </div>
+            <div className="flex items-center w-full p-4 pt-8 gap-x-4 border-t-2">
+                <Image
+                    src="/unlimited.svg"
+                    alt="Unlimited"
+                    height={60}
+                    width={60}
+                />
+                <div className="flex-1">
+                    <p className="text-neutral-700 text-base lg:text-xl font-bold">
+                        Unlimited Hearts
+                    </p>
+                </div>
+                <Button
+                    disabled={pending || hasActiveSubscription}
+                    onClick={onUpgrade}
+                >
+                    {hasActiveSubscription ? "active" : "upgrade"}
                 </Button>
             </div>
         </ul>
