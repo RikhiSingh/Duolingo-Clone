@@ -105,6 +105,7 @@ export const Items = ({
                     onClick={onUpgrade}
                     disabled={pending}
                 >
+                    {/* settings will take to customer portal of stripe */}
                     {hasActiveSubscription ? "settings" : "upgrade"}
                 </Button>
             </div>
