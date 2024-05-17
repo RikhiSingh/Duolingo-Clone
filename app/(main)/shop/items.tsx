@@ -102,10 +102,10 @@ export const Items = ({
                     </p>
                 </div>
                 <Button
-                    disabled={pending || hasActiveSubscription}
                     onClick={onUpgrade}
+                    disabled={pending}
                 >
-                    {hasActiveSubscription ? "active" : "upgrade"}
+                    {hasActiveSubscription ? "settings" : "upgrade"}
                 </Button>
             </div>
         </ul>
