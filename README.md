@@ -12,6 +12,8 @@ Made using:
 11. Zustand
 12. Axios
 13. Stripe
+14. react-admin
+15. ra-data-simple-rest
 
 Check TODO and Warn
 
