@@ -50,7 +50,11 @@ const LeaderboardPage = async () => {
                     <p className="text-muted-foreground text-center text-lg mb-6">
                         See where you stand amongst your peers in the community.
                     </p>
-                    {/* TODO Add user list */}
+                    {leaderboard.map((userProgress, index)=>(
+                        <div key={userProgress.userId}>
+                            {userProgress.userName}
+                        </div>
+                    ))}
                 </div>
             </FeedWrapper>
         </div>
