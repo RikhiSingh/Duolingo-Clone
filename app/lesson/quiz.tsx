@@ -198,9 +198,8 @@ export const Quiz = ({
                         />
                         <ResultCard
                             variant="hearts"
-                            value={
-                                userSubscription ? "Infinity" : hearts
-                            }
+                            value={hearts}
+                            userSubscription={userSubscription?.isActive}
                         />
                     </div>
                 </div>
