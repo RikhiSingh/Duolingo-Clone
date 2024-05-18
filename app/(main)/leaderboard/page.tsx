@@ -1,20 +1,23 @@
 import { FeedWrapper } from "@/components/feed-wrapper";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
-import { getUserProgress, getUserSubscription } from "@/db/queries";
+import { getTopTenUsers, getUserProgress, getUserSubscription } from "@/db/queries";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
 const LeaderboardPage = async () => {
     const userProgressData = getUserProgress();
     const userSubscriptionData = getUserSubscription();
+    const leaderboardData = getTopTenUsers();
 
     const [
         userProgress,
-        userSubscription
+        userSubscription,
+        leaderboard,
     ] = await Promise.all([
         userProgressData,
         userSubscriptionData,
+        leaderboardData,
     ]);
 
     if(!userProgress || !userProgress.activeCourse){
