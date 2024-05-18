@@ -1,3 +1,5 @@
+! Stripe webhook secret resets every 90 days
+
 Made using:
 1. Next.JS
 2. TypeScript
