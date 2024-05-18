@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { useState, useTransition } from "react";
 import Confetti from "react-confetti"
 
-import { challengeOptions, challenges } from "@/db/schema";
+import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 import { reduceHearts } from "@/actions/user-progress";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 
@@ -27,7 +27,9 @@ type Props = {
         completed: boolean;
         challengeOptions: typeof challengeOptions.$inferSelect[];
     })[];
-    userSubscription: any; // TODO replace with subscription DB type
+    userSubscription: typeof userSubscription.$inferSelect & {
+        isActive: boolean;
+    } | null;
 };
 
 export const Quiz = ({

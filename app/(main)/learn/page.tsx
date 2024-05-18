@@ -6,7 +6,8 @@ import {
     getCourseProgress,
     getLessonPercentage,
     getUnits,
-    getUserProgress
+    getUserProgress,
+    getUserSubscription
 } from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Unit } from "./unit";
@@ -18,17 +19,20 @@ const LearnPage = async () => {
     const courseProgressData = getCourseProgress();
     const lessonPercentageData = getLessonPercentage();
     const unitsData = getUnits();
+    const userSubscriptionData = getUserSubscription();
 
     const [
         userProgress,
         units,
         courseProgress,
-        lessonPercentage
+        lessonPercentage,
+        userSubscription
     ] = await Promise.all([
         userProgressData,
         unitsData,
         courseProgressData,
-        lessonPercentageData
+        lessonPercentageData,
+        userSubscriptionData
     ]);
 
     // if no check we will need ? for typeof as well as where there is userProgress.active etc.
@@ -48,7 +52,7 @@ const LearnPage = async () => {
                     activeCourse={userProgress.activeCourse}
                     hearts={userProgress.hearts}
                     points={userProgress.points}
-                    hasActiveSubscription={false}
+                    hasActiveSubscription={!!userSubscription?.isActive}
                 />
             </StickyWrapper>
             <FeedWrapper>
