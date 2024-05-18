@@ -25,10 +25,9 @@ export const upsertUserProgress = async (courseId: number) => {
         throw new Error("Course not found");
     }
 
-    // TODO: enable once units and lessons are added
-    // if(!course.units.length || !course.units[0].lessons.length){
-    //     throw new Error("Course is empty");
-    // }
+    if(!course.units.length || !course.units[0].lessons.length){
+        throw new Error("Course is empty");
+    }
 
     const existingUserProgress = await getUserProgress();
 
@@ -97,7 +96,9 @@ export const reduceHearts = async (challengeId: number) => {
         throw new Error("User progress not found");
     }
 
-    if
+    if (userSubscription?.isActive){
+        return {error: "subscription"};
+    };
 
     if (currentUserProgress.hearts === 0) {
         return { error: "hearts" };
