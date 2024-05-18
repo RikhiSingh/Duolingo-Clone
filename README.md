@@ -13,6 +13,8 @@ Made using:
 12. Axios
 13. Stripe
 
+Check TODO and Warn
+
 
 ***
 inside node_modules>clerk>nextjs>dist>types>index

@@ -137,7 +137,7 @@ export const getCourseProgress = cache(async () => {
         .flatMap((unit) => unit.lessons)
         .find((lesson) => {
             return lesson.challenges.some((challenge) => {
-                // TODO: if crash check last if clause
+                // Warn: if crash check last if clause
                 return !challenge.challengeProgress || challenge.challengeProgress.length === 0 || challenge.challengeProgress.some((progress) => progress.completed === false);
             });
         });
@@ -184,7 +184,7 @@ export const getLesson = cache(async (id?: number) => {
     };
 
     const normalizedChallenges = data.challenges.map((challenge) => {
-        // TODO: if crash check last if clause
+        // Warn: if crash check last if clause
         const completed = challenge.challengeProgress && challenge.challengeProgress.length > 0 && challenge.challengeProgress.every((progress) => progress.completed)
 
         return { ...challenge, completed: completed };
