@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export const Promo = () => {
+export const Quests = () => {
     return (
         <div className="border-2 rounded-xl p-4 space-y-4">
             <div className="space-y-2">
