@@ -32,6 +32,7 @@ type Props = {
     } | null;
 };
 
+
 export const Quiz = ({
     initialPercentage,
     initialHearts,
@@ -197,7 +198,9 @@ export const Quiz = ({
                         />
                         <ResultCard
                             variant="hearts"
-                            value={hearts}
+                            value={
+                                userSubscription ? "Infinity" : hearts
+                            }
                         />
                     </div>
                 </div>
