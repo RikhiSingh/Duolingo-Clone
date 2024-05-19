@@ -18,3 +18,20 @@ export const GET = async (req: Request,
 
     return NextResponse.json(data);
 };
+
+export const PUT = async (req: Request,
+    { params }: { params: { courseId: number } },
+) => {
+    if (!isAdmin()) {
+        return new NextResponse("Unauthorized", { status: 401 });
+    };
+
+    const body = await req.json();
+
+    const data = await db.update(courses).set({
+        ...body,
+    }).where(eq(courses.id, params.courseId));
+
+    return NextResponse.json(data);
+};
+
