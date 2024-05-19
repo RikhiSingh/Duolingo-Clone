@@ -1,4 +1,5 @@
 ! Stripe webhook secret resets every 90 days
+Confirm => where ever interact with db data go authentication check(every single page instead of large auth chunks)
 
 Made using:
 1. Next.JS
