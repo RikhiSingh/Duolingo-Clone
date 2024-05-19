@@ -30,8 +30,19 @@ export const PUT = async (req: Request,
 
     const data = await db.update(courses).set({
         ...body,
-    }).where(eq(courses.id, params.courseId));
+    }).where(eq(courses.id, params.courseId)).returning();
 
     return NextResponse.json(data);
 };
 
+export const DELETE = async (req: Request,
+    { params }: { params: { courseId: number } },
+) => {
+    if (!isAdmin()) {
+        return new NextResponse("Unauthorized", { status: 401 });
+    };
+
+    const data = await db.delete(courses).where(eq(courses.id, params.courseId)).returning();
+
+    return NextResponse.json(data);
+};
