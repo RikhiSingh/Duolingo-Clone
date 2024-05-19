@@ -32,7 +32,7 @@ export const PUT = async (req: Request,
         ...body,
     }).where(eq(courses.id, params.courseId)).returning();
 
-    return NextResponse.json(data);
+    return NextResponse.json(data[0]);
 };
 
 export const DELETE = async (req: Request,
@@ -44,5 +44,5 @@ export const DELETE = async (req: Request,
 
     const data = await db.delete(courses).where(eq(courses.id, params.courseId)).returning();
 
-    return NextResponse.json(data);
+    return NextResponse.json(data[0]);
 };
