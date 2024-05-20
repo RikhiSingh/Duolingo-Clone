@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs";
 
 const adminIds = [
-   // "user_2gF7aSfrEOmXcQZNLazLFcBKQHs",
+    "user_2gF7aSfrEOmXcQZNLazLFcBKQHs",
 ];
 
 export const isAdmin = () => {
@@ -11,5 +11,6 @@ export const isAdmin = () => {
         return false;
     };
 
-    return adminIds.indexOf(userId) !== -1;
+    // return adminIds.indexOf(userId) !== -1;
+    return null
 };
