@@ -27,12 +27,12 @@ This project is a clone of Duolingo, built using modern web technologies. It fea
    Create a .env file in the root directory and add the necessary environment variables.
    *Namely*
    ```bash
-   1. NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY 
-   2. CLERK_SECRET_KEY 
-   3. DATABASE_URL
-   4. STRIPE_API_KEY
-   5. NEXT_PUBLIC_APP_URL
-   6. STRIPE_WEBHOOK_SECRET
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY 
+   CLERK_SECRET_KEY 
+   DATABASE_URL
+   STRIPE_API_KEY
+   NEXT_PUBLIC_APP_URL
+   STRIPE_WEBHOOK_SECRET
 
 4. **Run the development server**
    ```bash
