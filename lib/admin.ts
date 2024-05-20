@@ -12,5 +12,5 @@ export const isAdmin = () => {
     };
 
     // return adminIds.indexOf(userId) !== -1;
-    return null
+    return true
 };
