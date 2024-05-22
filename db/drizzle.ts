@@ -2,6 +2,7 @@ import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
 
 import * as schema from './schema';
+// uses github account for neon
 
 const sql = neon(process.env.DATABASE_URL!);
 // @ts-ignore
