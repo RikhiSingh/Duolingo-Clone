@@ -41,6 +41,11 @@ This project is a clone of Duolingo, built using modern web technologies. It fea
 5. **Access the Application** <br />
    Open http://localhost:3000 in your browser.
 
+## License
+This project is licensed under the MIT License.
+
+```Note: I chose the MIT License because it is a permissive open source license that allows others to freely use, modify, and distribute the code with minimal restrictions.```
+
 ## Usage
 - Register or log in using Google SSO.
 - Explore language courses and track your progress.
